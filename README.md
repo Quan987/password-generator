@@ -79,7 +79,7 @@ For any inquiries or suggestions regarding the Password Generator project, pleas
 
 - Quan Tran: [qtran16@student.gsu.edu](mailto:qtran16@student.gsu.edu)
 - John Pham: []()
-- Jannet Doan: []()
+- Jannet Doan: [jdoan7@student.gsu.edu](mailto:jdoan7@student.gsu.edu)
 - Cayla Bias: []()
 
 Thank you for your interest in our project! We look forward to your contributions and feedback. Happy coding! 🚀
