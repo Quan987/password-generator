@@ -67,19 +67,19 @@ To run the Password Generator Website locally on your machine, follow these step
 
 ## Contributing
 
-We welcome contributions from the community! If you'd like to contribute to the Password Generator project, please follow this [CONTRIBUTING]().
+We welcome contributions from the community! If you'd like to contribute to the Password Generator project, please follow this [CONTRIBUTING](https://github.com/Quan987/password-generator/blob/main/CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the [LICENSE]().
+This project is licensed under the [LICENSE](https://github.com/Quan987/password-generator/blob/main/LICENSE.txt).
 
 ## Contact
 
 For any inquiries or suggestions regarding the Password Generator project, please contact:
 
 - Quan Tran: [qtran16@student.gsu.edu](mailto:qtran16@student.gsu.edu)
-- John Pham: []()
+- John Pham: [jpham20@student.gsu.edu](mailto:jpham20@student.gsu.edu)
 - Jannet Doan: [jdoan7@student.gsu.edu](mailto:jdoan7@student.gsu.edu)
-- Cayla Bias: []()
+- Cayla Bias: [cbias1@student.gsu.edu](mailto:cbias1@student.gsu.edu)
 
 Thank you for your interest in our project! We look forward to your contributions and feedback. Happy coding! 🚀
