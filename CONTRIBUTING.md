@@ -25,7 +25,7 @@ Before submitting a PR, please ensure that your code adheres to the following gu
 
 ## Reporting Bugs
 
-If you encounter any bugs or issues while using Password Generator Project, please report them by [creating an issue](https://github.com/Quan987/password-generator.git) on GitHub. Make sure to include as much detail as possible, including steps to reproduce the issue.
+If you encounter any bugs or issues while using Password Generator Project, please report them by [creating an issue](https://github.com/Quan987/password-generator/issues) on GitHub. Make sure to include as much detail as possible, including steps to reproduce the issue.
 
 ## Contact
 
@@ -33,6 +33,6 @@ If you have any questions or need further assistance, feel free to reach out to 
 
 ## License
 
-By contributing to Password Generator Project, you agree that your contributions will be licensed under the Apache License. See the [LICENSE](https://github.com/Quan987/password-generator.git) file for more details.
+By contributing to Password Generator Project, you agree that your contributions will be licensed under the Apache License. See the [LICENSE](https://github.com/Quan987/password-generator/blob/main/LICENSE.txt) file for more details.
 
 Thank you for your interest in contributing to Password Generator Project! We appreciate your help in making this project better for everyone.
