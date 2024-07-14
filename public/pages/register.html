@@ -1,42 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+<head>
     <title>Register</title>
-  </head>
-  <body>
-    
-<h1>Register an Account</h1>
-	<div class = "box">
-    <form name = "myform" method="post">
-		
-		<span class = "error" id = "fname_err"></span>
-        <label for="firstname">First Name:</label><br>
-        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required><br>
-		<span class = "error" id = "lname_err"></span>
-        <label for="lastname">Last Name:</label><br>
-        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required><br>
-		<span class = "error" id = "email_err"></span>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" placeholder="Enter your email address" required><br>
-		<span class = "error" id = "pass_err"></span>
-        <label for="password">Password:</label><br>
-        <input type="text" id="password" name="password" placeholder="Enter your password" required><br>
-		
+    <style>
+          /* Style the body */
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: silver;
+            text-align: center;
+        }
 
-        <pre><input type="submit" value="Submit"> <input type="reset" value="Reset"></pre><br>
-		
-		<pre>Another account. Already have an account? <a href = './login.html'>Login</a> <a href = './home.html'>Return Home</a></pre>
-		<!-- this will redirect to login page and home page-->
-		
-    </form>
-	</div>
+        /* Header/Logo Title */
+        .header {
+            padding: 10px;
+            text-align: right;
+            background: white;
+            color: black;
+            font-size: 30px;
+            position: relative;
+        }
 
+        /* Page Content */
+        .content {
+            padding: 20px;
+        }
 
+        /* Style the form container */
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+        }
 
+        /* Style the form */
+        form {
+            text-align: left;
+        }
 
+        /* Style the input fields and button */
+        input[type="text"], input[type="email"], input[type="password"], button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
 
+        /* Style the error messages */
+        .error {
+            color: red;
+        }
 
-  </body>
+        /* Style the buttons */
+        .header button {
+            font-size: 12px;
+            padding: 5px 10px;
+            margin-left: 5px;
+            background-color: #f1f1f1; /* Light grey */
+            color: black;
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #ddd; /* Slightly darker grey on hover */
+        }
+
+        /* Align buttons side by side */
+        .header .buttons {
+            display: inline-block;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="buttons">
+        <button onclick="window.location.href='login.html'" type="button">Log In</button>
+        <button onclick="window.location.href='register.html'" type="button">Register</button>
+    </div>
+</div>
+
+<div class="content">
+    <h1>Pass Generator</h1>
+    <h2>Register</h2>
+    <div class="form-container">
+        <form action="register.php" method="post">
+            <span class="error" id="first_err"></span>
+            <label for="first">First Name</label><br>
+            <input type="text" id="first" name="first_name" placeholder="Enter your First Name" required><br>
+
+            <span class="error" id="last_err"></span>
+            <label for="last">Last Name</label><br>
+            <input type="text" id="last" name="last_name" placeholder="Enter your Last Name" required><br>
+            
+            <span class="error" id="email_err"></span>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required><br>
+
+            <span class="error" id="pass_err"></span>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+
+            <button type="button" onclick="register()">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function register() {
+        // Placeholder for client-side validation
+        const first = document.getElementById('first').value;
+        const last = document.getElementById('last').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Clear previous errors
+        document.getElementById('first_err').innerText = '';
+        document.getElementById('last_err').innerText = '';
+        document.getElementById('email_err').innerText = '';
+        document.getElementById('pass_err').innerText = '';
+
+        // Basic validation
+        let isValid = true;
+        if (!first) {
+            document.getElementById('first_err').innerText = 'First Name is required';
+            isValid = false;
+        }
+        if (!last) {
+            document.getElementById('last_err').innerText = 'Last Name is required';
+            isValid = false;
+        }
+        if (!email) {
+            document.getElementById('email_err').innerText = 'Email is required';
+            isValid = false;
+        }
+        if (!password) {
+            document.getElementById('pass_err').innerText = 'Password is required';
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Form submission handled by PHP script
+            document.querySelector('form').submit();
+        }
+    }
+</script>
+
+</body>
 </html>
+
