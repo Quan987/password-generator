@@ -1,16 +1,5 @@
-<?php
+<?php require_once '../../private/initialize.php';
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "login";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST['first_name'];
@@ -21,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the password for security
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
-    $query = "INSERT INTO login (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+    $query = "INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssss', $first_name, $last_name, $email, $hashed_password);
     
@@ -32,5 +21,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $stmt->error;
     }
 }
-$conn->close();
+db_disconnect($db);
 ?>

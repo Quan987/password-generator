@@ -1,0 +1,77 @@
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+  background: silver;
+  text-align: center;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  text-align: right;
+
+  background: white;
+  color: black;
+  font-size: 30px;
+  position: relative;
+}
+
+/* Page Content */
+.content {
+  padding: 20px;
+}
+
+/* Style the form container */
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-top: 50px;
+}
+
+/* Style the form */
+form {
+  text-align: left;
+}
+
+/* Style the input fields and button */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Style the error messages */
+.error {
+  color: red;
+}
+
+/* Style the buttons */
+.header button {
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #f1f1f1; /* Light grey */
+  color: black;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: #ddd; /* Slightly darker grey on hover */
+}
+
+/* Align buttons side by side */
+.header .buttons {
+  display: inline-block;
+  margin-left: auto;
+}
