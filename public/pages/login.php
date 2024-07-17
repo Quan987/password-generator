@@ -1,40 +1,53 @@
-<?php
-session_start();
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "login";
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/style/login-register.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="buttons">
+        <button onclick="window.location.href='login.html'" type="button">
+          Log In
+        </button>
+        <button onclick="window.location.href='register.html'" type="button">
+          Register
+        </button>
+      </div>
+    </div>
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    <div class="content">
+      <h1>Pass Generator</h1>
+      <h2>Login</h2>
+      <div class="form-container">
+        <form id="loginForm">
+          <span class="error" id="email_err"></span>
+          <label for="email">Email:</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          /><br />
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+          <span class="error" id="pass_err"></span>
+          <label for="password">Password:</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          /><br />
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    $query = "SELECT id, first_name, password FROM login WHERE email = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        // Verify password
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['userid'] = $user['id'];
-            $_SESSION['first_name'] = $user['first_name'];
-            echo json_encode(['success' => true]);
-        } else {
-            echo json_encode(['success' => false]);
-        }
-    } else {
-        echo json_encode(['success' => false]);
-    }
-}
-$conn->close();
-?>
+          <button type="button" onclick="login()">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../scripts/login-register.js"></script>
+  </body>
+</html>
