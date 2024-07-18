@@ -1,48 +1,34 @@
-// Login function
-function login() {
-  // Placeholder for login functionality
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+"use strict";
 
-  // Clear previous errors
-  document.getElementById("email_err").innerText = "";
-  document.getElementById("pass_err").innerText = "";
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const email_err = document.getElementById("email_err");
+const password_err = document.getElementById("pass_err");
 
-  // Basic validation
-  let isValid = true;
-  if (!email) {
+// Clear previous errors
+function clear_error() {
+  email_err.innerText = "";
+  password_err.innerText = "";
+}
+
+// User validation
+function user_validation(isValid) {
+  if (!email.value) {
     document.getElementById("email_err").innerText = "Email is required";
     isValid = false;
   }
-  if (!password) {
+  if (!password.value) {
     document.getElementById("pass_err").innerText = "Password is required";
     isValid = false;
   }
+  return isValid;
+}
 
-  if (isValid) {
-    // Prepare data to send
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-
-    // Send login request to server
-    fetch("login.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json()) // Assuming login.php returns JSON
-      .then((data) => {
-        // Handle response from server
-        if (data.success) {
-          alert("Login successful!");
-          window.location.href = "index.html"; // Redirect to dashboard page
-        } else {
-          alert("Invalid email or password.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Error occurred during login. Please try again.");
-      });
+// Login function
+function login() {
+  let isValid = true;
+  clear_error();
+  if (user_validation(isValid)) {
+    document.querySelector("form").submit();
   }
 }
