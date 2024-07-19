@@ -44,29 +44,32 @@
         $stmt->free_result();
         return $isDuplicate;
     }
-
-    function check_user_login($userInfo) {
+    
+    function get_user_login($userInfo) {
         global $db;
-        $message= "";
-        $query = "SELECT email, password FROM user WHERE email=?";
+        $query = "SELECT id, email, password FROM user WHERE email=?";
         $stmt = $db -> prepare($query);
         $stmt -> bind_param('s', $userInfo["email"]);
         $stmt -> execute();
         $data = $stmt -> get_result();
         $result = $data -> fetch_assoc();
+        $data->free_result();
+        return $result;
+    }
+
+    function check_user_login($userInfo, $result) {        
+        $message= "";
         switch ($userInfo) {
-            // case $userInfo["email"] !== $result["email"]:
             case !isset($result["email"]):
-                $message = "User don't exist, please register";
+                $message = '<script>alert("User don\'t exist, please register");</script>';
                 break;
             case $userInfo["password"] !== $result["password"]:
-                $message = "Password incorrect, please try again";
+                $message = '<script>alert("Password incorrect, please try again");</script>';
                 break;
             default:
-                $message = "User found";
+                $message = NULL;
         }
         return $message;
-        
     }
 
 ?>
