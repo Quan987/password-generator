@@ -1,7 +1,13 @@
 <?php require_once ('../../private/initialize.php');
-    $_SESSION = [];
-    session_unset();
-    session_destroy();
-    header('Location: ' . "login.php");
-    exit;
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        header('Location: ' . 'index.php');
+    } else {
+        $_SESSION = [];
+        session_unset();
+        session_destroy();
+        header('Location: ' . "login.php");
+        exit;
+    }
+    
+    
 ?>
