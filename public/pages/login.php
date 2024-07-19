@@ -1,15 +1,17 @@
-<?php
-  require_once('../../private/initialize.php');
+<?php require_once('../../private/initialize.php');
   if($_SERVER["REQUEST_METHOD"] === "POST") {
     $user_info = [
       "email" => $_POST["email"],
       "password" => $_POST["password"]
     ];
-    $message = check_user_login($user_info);
-    echo $message;
-    
-
-
+    $result = get_user_login($user_info);
+    $error_message = check_user_login($user_info, $result);
+    if (isset($error_message)) {
+      echo $error_message;
+    } else {
+      $_SERVER["id"] = $result["id"];
+      header('Location: ' . 'index.php');
+    }
     db_disconnect($db);
   }
 ?>
