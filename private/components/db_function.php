@@ -47,7 +47,7 @@
     
     function get_user_login($userInfo) {
         global $db;
-        $query = "SELECT id, email, password FROM user WHERE email=?";
+        $query = "SELECT id, email, first_name, last_name, password FROM user WHERE email=?";
         $stmt = $db -> prepare($query);
         $stmt -> bind_param('s', $userInfo["email"]);
         $stmt -> execute();

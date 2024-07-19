@@ -1,24 +1,29 @@
 <?php require_once ('../../private/initialize.php');
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $user_info = [
-    "first_name" => $_POST['first_name'],
-    "last_name" => $_POST['last_name'],
-    "email" => $_POST['email'],
-    "password" => $_POST['password']
-  ];
-  
-  if(check_register_duplicate($user_info["email"])) {
-    echo "<script>alert(\"Email has already been used\");</script>";
-  } else {
-    register_user($user_info);
-    echo '<script type="text/javascript">';
-    echo 'alert("Register Successfully!");';
-    echo 'window.location.href="login.php";';
-    echo '</script>';
+  if (isset($_SESSION["id"])) {
+    header('Location: ' . 'index.php');
   }
-  db_disconnect($db);
-}
+
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user_info = [
+      "first_name" => $_POST['first_name'],
+      "last_name" => $_POST['last_name'],
+      "email" => $_POST['email'],
+      "password" => $_POST['password']
+    ];
+    
+    if(check_register_duplicate($user_info["email"])) {
+      echo "<script>alert(\"Email has already been used\");</script>";
+    } else {
+      register_user($user_info);
+      echo <<<EOF
+        <script type="text/javascript">
+        alert("Register Successfully!");
+        window.location.href="login.php";
+        </script>;
+      EOF;
+    }
+    db_disconnect($db);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <body>
     <div class="header">
       <div class="buttons">
-        <button onclick="window.location.href='login.html'" type="button">
-          Log In
-        </button>
-        <button onclick="window.location.href='register.html'" type="button">
-          Register
-        </button>
+      <div class="buttons">
+        <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
+        <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
+      </div>
       </div>
     </div>
 

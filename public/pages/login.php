@@ -1,4 +1,7 @@
 <?php require_once('../../private/initialize.php');
+  if (isset($_SESSION["id"])) {
+    header('Location: ' . 'index.php');
+  }
   if($_SERVER["REQUEST_METHOD"] === "POST") {
     $user_info = [
       "email" => $_POST["email"],
@@ -9,9 +12,12 @@
     if (isset($error_message)) {
       echo $error_message;
     } else {
-      $_SERVER["id"] = $result["id"];
+      $_SESSION["id"] = $result["id"];
+      $_SESSION["user"] = $result["first_name"] . " " . $result["last_name"];
       header('Location: ' . 'index.php');
+      
     }
+  
     db_disconnect($db);
   }
 ?>
@@ -32,12 +38,8 @@
   <body>
     <div class="header">
       <div class="buttons">
-        <button onclick="window.location.href='login.html'" type="button">
-          Log In
-        </button>
-        <button onclick="window.location.href='register.html'" type="button">
-          Register
-        </button>
+        <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
+        <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
       </div>
     </div>
 
