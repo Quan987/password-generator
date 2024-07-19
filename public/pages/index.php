@@ -45,7 +45,9 @@
     </div>
     <button onclick="generatePassword()">Generate Password</button>
     <br>
-    <a href="<?php echo encode_url('logout.php'); ?>">Logout</a>
+    <form action="logout.php" method="post">
+      <input type="submit" value="Logout">
+    </form>
     <script>
       window.onload = generatePassword; // Call generatePassword on page load
     </script>
