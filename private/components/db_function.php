@@ -32,15 +32,44 @@
 
     function check_register_duplicate($userEmail) {
         global $db;
+        $isDuplicate = false;
         $query = "SELECT email FROM user ORDER BY id ASC";
         $stmt = $db->query($query);
         while($result = $stmt->fetch_assoc()) {
             if ($userEmail === $result["email"]) {
-                return true;
+                $isDuplicate = true;
+                break;
             }
         }
-        return false;
-        
+        $stmt->free_result();
+        return $isDuplicate;
+    }
+    
+    function get_user_login($userInfo) {
+        global $db;
+        $query = "SELECT id, email, password FROM user WHERE email=?";
+        $stmt = $db -> prepare($query);
+        $stmt -> bind_param('s', $userInfo["email"]);
+        $stmt -> execute();
+        $data = $stmt -> get_result();
+        $result = $data -> fetch_assoc();
+        $data->free_result();
+        return $result;
+    }
+
+    function check_user_login($userInfo, $result) {        
+        $message= "";
+        switch ($userInfo) {
+            case !isset($result["email"]):
+                $message = '<script>alert("User don\'t exist, please register");</script>';
+                break;
+            case $userInfo["password"] !== $result["password"]:
+                $message = '<script>alert("Password incorrect, please try again");</script>';
+                break;
+            default:
+                $message = NULL;
+        }
+        return $message;
     }
 
 ?>
