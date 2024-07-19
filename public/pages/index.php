@@ -1,5 +1,12 @@
 <?php require_once('../../private/initialize.php');
-
+  if (empty($_SESSION["id"])) {
+    header('Location: ' . 'login.php');
+    exit;
+  } else {
+    $id = $_SESSION["id"];
+    $userName = $_SESSION["user"];
+    echo $id;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +19,7 @@
   </head>
   <body>
     <h1>Password Generator</h1>
+    <h2>Welcome <?php echo htmlspecialchars(ucwords($userName));?></h2>
     <div id="password-display">
       <p id="password"></p>
     </div>
@@ -36,7 +44,8 @@
       <input type="checkbox" id="symbols" checked />
     </div>
     <button onclick="generatePassword()">Generate Password</button>
-
+    <br>
+    <a href="<?php echo encode_url('logout.php'); ?>">Logout</a>
     <script>
       window.onload = generatePassword; // Call generatePassword on page load
     </script>
