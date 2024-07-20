@@ -54,6 +54,7 @@
         $data = $stmt -> get_result();
         $result = $data -> fetch_assoc();
         $data->free_result();
+        $stmt -> close();
         return $result;
     }
 
@@ -70,6 +71,50 @@
                 $message = NULL;
         }
         return $message;
+    }
+
+    function add_password($userId, $userPass) {
+        global $db;
+        $query = "INSERT INTO passwords (user_id, pass) VALUES (?, ?)";
+        $stmt = $db -> prepare($query);
+        $stmt -> bind_param('ss', $userId, $userPass);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    }
+
+    function get_all_password($userId) {
+        global $db;
+        $query = "SELECT pass FROM passwords WHERE user_id = ?";
+        $stmt = $db -> prepare($query);
+        $stmt -> bind_param('s', $userId);
+        $stmt -> execute();
+        if ($stmt->execute()) {
+            $data = $stmt -> get_result();
+            $result = $data -> fetch_all(MYSQLI_ASSOC);
+            $data->free_result();
+            $stmt -> close();
+            return $result;    
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    }
+
+    function check_duplicate_password($generatePass) {
+        global $db;
+        $isDuplicate = false;
+        $query = "SELECT pass FROM passwords ORDER BY id ASC";
+        $stmt = $db->query($query);
+        while($result = $stmt->fetch_assoc()) {
+            if ($generatePass === $result["pass"]) {
+                $isDuplicate = true;
+                break;
+            }
+        }
+        $stmt->free_result();
+        return $isDuplicate;
     }
 
 ?>
