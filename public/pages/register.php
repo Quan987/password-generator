@@ -101,7 +101,10 @@
         </form>
       </div>
     </div>
-
+    <footer>
+    © 2024 The Software Cats, All Rights Reserved
+    </footer>
+    
     <script src="../../private/assets/scripts/register.js"></script>
   </body>
 </html>
