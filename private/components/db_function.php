@@ -73,11 +73,11 @@
         return $message;
     }
 
-    function add_password($userId, $userPass) {
+    function add_password($user_info) {
         global $db;
         $query = "INSERT INTO passwords (user_id, pass) VALUES (?, ?)";
         $stmt = $db -> prepare($query);
-        $stmt -> bind_param('ss', $userId, $userPass);
+        $stmt -> bind_param('ss', $user_info["id"], $user_info["genPassword"]);
         if ($stmt->execute()) {
             return true;
         } else {
@@ -124,6 +124,18 @@
         $stmt -> bind_param('sii', $user_info["passwordValue"], $user_info["passwordID"], $user_info["id"]);
         if ($stmt->execute()) {
            return true;
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    }
+
+    function delete_password($user_info) {
+        global $db;
+        $query = "DELETE FROM passwords WHERE id=? AND user_id=? LIMIT 1";
+        $stmt = $db -> prepare($query);
+        $stmt -> bind_param('ii', $user_info["passwordID"], $user_info["id"]);
+        if ($stmt->execute()) {
+            return true;
         } else {
             echo "Error: " . $stmt->error;
         }
