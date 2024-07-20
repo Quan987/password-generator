@@ -109,7 +109,7 @@ table {
   height: 2.4rem;
   position: relative;
   top: 0;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   display: flex;
   justify-content: right;
   align-items: center;
