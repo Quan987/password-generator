@@ -87,7 +87,7 @@
 
     function get_all_password($userId) {
         global $db;
-        $query = "SELECT pass FROM passwords WHERE user_id = ?";
+        $query = "SELECT id, pass FROM passwords WHERE user_id = ?";
         $stmt = $db -> prepare($query);
         $stmt -> bind_param('s', $userId);
         $stmt -> execute();
@@ -115,6 +115,18 @@
         }
         $stmt->free_result();
         return $isDuplicate;
+    }
+    
+    function update_password($user_info) {
+        global $db;
+        $query = "UPDATE passwords SET pass=? WHERE id=? AND user_id=?";
+        $stmt = $db -> prepare($query);
+        $stmt -> bind_param('sii', $user_info["passwordValue"], $user_info["passwordID"], $user_info["id"]);
+        if ($stmt->execute()) {
+           return true;
+        } else {
+            echo "Error: " . $stmt->error;
+        }
     }
 
 ?>
