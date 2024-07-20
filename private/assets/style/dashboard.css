@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+table {
+  width: 50%;
+}
+
+.th-password {
+  width: 60%;
+}
+
+#password-box {
+  height: 2.8rem;
+  width: 16rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
