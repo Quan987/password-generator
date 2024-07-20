@@ -18,7 +18,7 @@ require_once('index.php');
             $_POST["password-box-value"] = "";
             echo <<<EOF
                 <script type="text/javascript">
-                alert("Successful");
+                alert("Update Successful!");
                 window.location.href="index.php";
                 </script>;
             EOF;
