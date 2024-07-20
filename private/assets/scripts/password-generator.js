@@ -1,6 +1,6 @@
 "use strict";
 
-const passwordBox = document.getElementById("password-box");
+const passwordBox = document.getElementById("generate-password-box");
 
 function generatePassword() {
   clearValue();
