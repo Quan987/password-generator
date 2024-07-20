@@ -5,19 +5,8 @@
   } 
   $userid = $_SESSION["id"];
   $userName = $_SESSION["user"];
-  if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($GET["password-box"])) {
-    $generatePass = strip_space($_GET["password-box"]);
-    if (check_duplicate_password($generatePass)) {
-      duplicate_password_message();
-    } else {
-      add_password($userid, $generatePass);
-      $_GET["password-box"] = "";
-      header('Location: ' . $_SERVER['PHP_SELF']);
-      exit;
-    }
-  } else {
-    $get_password = get_all_password($userid);
-  }
+  $get_password = get_all_password($userid);
+  
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +28,10 @@
       <br>
       <h2>Welcome <?php echo htmlspecialchars(ucwords($userName));?></h2>
       <br>
-      <form action="index.php" method="get" id="form1-pass">
+      <form action="add.php" method="post" id="form1-pass">
         <div id="password-display">
           <label for="password-box" class="password-box-label">Generate Password</label>
-          <input type="text" name="password-box" id="password-box" maxlength="20"></input>
+          <input type="text" name="generate-password-box" id="generate-password-box" maxlength="20"></input>
         </div>
         <br>
         <div>
@@ -95,7 +84,7 @@
               echo '<td>' . ($i + 1) . '</td>';
               echo '<td class="password-value" data-value="' . $passValue . '">' . encode_value($passValue) .'</td>';
               echo '<td><button type="button" onclick="buttonEdit();" class="editButton" value="'. encode_value($passId) .'">Edit</button></td>';
-              echo '<td><button type="button" onclick="buttonDelete();" class="deleteButton">Delete</button></td>';      
+              echo '<td><button type="button" onclick="buttonDelete();" class="deleteButton" value="' . encode_value($passId). '">Delete</button></td>';      
               echo "</tr>";
             }
           }
@@ -110,7 +99,7 @@
         <input type="text" maxlength="20" name="password-box-value" id="password-box-value">
         <input type="hidden" name="password-box-id" id="password-box-id">
         <div class="button-box">
-          <button type="submit" class="open-modal form2-btn" onclick="cancel_change();">Submit</button>
+          <button type="submit" class="open-modal form2-btn">Submit</button>
           <button type="button" class="close-modal form2-btn" onclick="cancel_change();">Cancel</button>
         </div>
       </form>
@@ -119,9 +108,9 @@
       <form action="delete.php" method="post" id="form3-delete">
         <h3>DELETE THIS PASSWORD?</h3>
         <input type="text" maxlength="20" name="delete-box-value" id="delete-box-value" readonly>
-        <input type="hidden" name="delete-box-id" id="delete-box-id" readonly>
+        <input type="hidden" name="delete-box-id" id="delete-box-id">
         <div class="button-box">
-          <button type="submit" class="open-modal form3-btn" onclick="cancel_change();">Submit</button>
+          <button type="submit" class="open-modal form3-btn">Submit</button>
           <button type="button" class="close-modal form3-btn" onclick="cancel_change();">Cancel</button>
         </div>
       </form>
