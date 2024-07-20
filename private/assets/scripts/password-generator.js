@@ -1,14 +1,17 @@
 "use strict";
 
+const passwordBox = document.getElementById("password-box");
+
 function generatePassword() {
-  // Get user preferences
+  clearValue();
+
+  // Define character sets based on user selections
   const length = document.getElementById("length").value;
   const lowercase = document.getElementById("lowercase").checked;
   const uppercase = document.getElementById("uppercase").checked;
   const numbers = document.getElementById("numbers").checked;
   const symbols = document.getElementById("symbols").checked;
 
-  // Define character sets based on user selections
   let charSet = "";
   if (lowercase) charSet += "abcdefghijklmnopqrstuvwxyz";
   if (uppercase) charSet += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -28,5 +31,9 @@ function generatePassword() {
   }
 
   // Display the generated password
-  document.getElementById("password").innerText = password;
+  passwordBox.value = password;
+}
+
+function clearValue() {
+  passwordBox.value = "";
 }

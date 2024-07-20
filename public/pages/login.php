@@ -14,11 +14,10 @@
     } else {
       $_SESSION["id"] = $result["id"];
       $_SESSION["user"] = $result["first_name"] . " " . $result["last_name"];
+      db_disconnect($db);
       header('Location: ' . 'index.php');
-      
+      exit;
     }
-  
-    db_disconnect($db);
   }
 ?>
 

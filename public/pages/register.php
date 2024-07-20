@@ -15,6 +15,7 @@
       echo "<script>alert(\"Email has already been used\");</script>";
     } else {
       register_user($user_info);
+      db_disconnect($db);
       echo <<<EOF
         <script type="text/javascript">
         alert("Register Successfully!");
@@ -22,7 +23,6 @@
         </script>;
       EOF;
     }
-    db_disconnect($db);
   }
 ?>
 
