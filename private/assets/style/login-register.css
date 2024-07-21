@@ -7,7 +7,7 @@
 /* Style the body */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: rgb(229, 229, 229);
+  background: #e6e6ff;
   text-align: center;
 }
 
@@ -73,20 +73,15 @@ input[type="password"],
 .header button {
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  /* background-color: #f1f1f1; Light grey */
   color: black;
   border: 1px solid #ccc; /* Light grey border */
   border-radius: 5px;
   cursor: pointer;
 }
 
-.header button:hover {
-  background-color: #ddd; /* Slightly darker grey on hover */
-}
-
 .header button > a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 footer {
@@ -120,6 +115,18 @@ footer {
   /* height: 100px; */
   /* border: 1px solid black; */
   /* border-radius: 100px; */
+}
+
+button {
+	background-color: #8789fe;
+	color:white;
+}
+button:hover {
+	background-color: #686afd;
+}
+
+#sign-in-btn {
+	border-radius: 5px;
 }
 
 label {

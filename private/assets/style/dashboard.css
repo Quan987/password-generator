@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: rgb(229, 229, 229);
+  background: #e6e6ff;
   text-align: center;
 }
 
@@ -36,14 +36,15 @@ body {
 #logout-btn {
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  color: black;
+  color: white;
   border: 1px solid #ccc; /* Light grey border */
   border-radius: 5px;
   cursor: pointer;
+  background-color: #8789fe;
 }
 
 #logout-btn:hover {
-  background-color: #ddd; /* Slightly darker grey on hover */
+  background-color: #686afd; /* Slightly darker grey on hover */
 }
 
 #logo {
@@ -71,12 +72,13 @@ body {
   padding: 1.4rem 3rem;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 8px;
-  background: rgb(205, 205, 205);
+  background: #8789fe;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   gap: 4rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 #generate-password-box {
@@ -103,7 +105,7 @@ body {
 
 input[type="checkbox"],
 input[type="range"] {
-  accent-color: black;
+	accent-color: #686afd;
 }
 
 #password-generate-btn {
@@ -131,13 +133,21 @@ button:hover {
 }
 
 .store-btn {
-  background-color: rgb(47, 47, 47);
+  background-color: #8789fe;
   color: white;
+}
+
+.store-btn:hover {
+	background-color: #686afd;
 }
 
 .generate-btn {
   background-color: #fefeff;
   color: black;
+}
+
+.generate-btn:hover {
+	background-color: #e6e6e6;
 }
 
 /* ----------------------------------------- */
@@ -147,18 +157,15 @@ table {
   width: 50%;
   background-color: #fefeff;
   border-collapse: collapse;
-  border: 1px solid #000;
+  border: 3px solid #686afd;
 }
 
 th,
 td {
-  border-style: none solid solid none;
+  border: 1px solid black;
   padding: 0.8rem 0.3rem;
 }
 
-th {
-  text-transform: uppercase;
-}
 
 .th-password {
   width: 60%;
@@ -270,3 +277,4 @@ footer {
 h3 {
   font-size: 1.4rem;
 }
+
