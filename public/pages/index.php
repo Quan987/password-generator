@@ -19,55 +19,56 @@
   </head>
   <body>
     <header id="header">
-      <form action="logout.php" method="post">
+      <img id="logo" src="../../private/assets/images/logo.png" alt="logo">
+      <form action="logout.php" method="post" id="logout-form">
           <input type="submit" value="Logout" id="logout-btn">
       </form>
     </header>
     <main id="main">
-      <h1>Password Generator</h1>
-      <br>
-      <h2>Welcome <?php echo htmlspecialchars(ucwords($userName));?></h2>
-      <br>
+      <!-- <h1 class="title">Password Generator</h1> -->
+      <h1 class="title">Welcome <?php echo htmlspecialchars(ucwords($userName));?></h1>
+      
       <form action="add.php" method="post" id="form1-pass">
-        <div id="password-display">
-          <label for="password-box" class="password-box-label">Generate Password</label>
-          <input type="text" name="generate-password-box" id="generate-password-box" maxlength="20"></input>
+        <div id="pass-generate-box">
+          <div id="password-display">
+            <!-- <label for="password-box" class="password-box-label">Generate Password</label> -->
+            <input type="text" name="generate-password-box" id="generate-password-box" maxlength="20"></input>
+          </div>
+          <div id="selection">
+            <div class="options">
+              <output id="output">8</output>
+              <input type="range" id="length" min="8" value="8" max="20" required oninput="updateOutput(this.value)"/>
+              <label for="length">Length</label>
+            </div>
+            
+            <div class="options">
+              <input type="checkbox" id="lowercase" checked />
+              <label for="lowercase">Lowercase</label>
+            </div>
+            
+            <div class="options">
+              <input type="checkbox" id="uppercase" checked />
+              <label for="uppercase">Uppercase</label>
+            </div>
+            
+            <div class="options">
+              <input type="checkbox" id="numbers" checked />
+              <label for="numbers">Numbers</label>
+            </div>
+            
+            <div class="options">
+              <input type="checkbox" id="symbols" checked />
+              <label for="symbols">Symbols</label>
+            </div>
+          </div>
         </div>
-        <br>
-        <div>
-          <div class="options">
-            <label for="length">Password Length:</label>
-            <input type="range" id="length" min="8" value="8" max="20" required oninput="this.nextElementSibling.value = this.value"/>
-            <output>8</output>
-          </div>
-          <br>
-          <div class="options">
-            <label for="lowercase">Lowercase Letters:</label>
-            <input type="checkbox" id="lowercase" checked />
-          </div>
-          <br>
-          <div class="options">
-            <label for="uppercase">Uppercase Letters:</label>
-            <input type="checkbox" id="uppercase" checked />
-          </div>
-          <br>
-          <div class="options">
-            <label for="numbers">Numbers:</label>
-            <input type="checkbox" id="numbers" checked />
-          </div>
-          <br>
-          <div class="options">
-            <label for="symbols">Symbols:</label>
-            <input type="checkbox" id="symbols" checked />
-          </div>
-        </div>
-        <br>
-        <div>
-          <button type="button" onclick="generatePassword();" class="form1-btn">Generate</button>
-          <button type="submit" class="form1-btn">Add Password</button>
+        
+        <div id="password-generate-btn">
+          <button type="button" onclick="generatePassword();" class="generate-btn form1-btn">Generate</button>
+          <button type="submit" class="store-btn form1-btn">Store</button>
         </div>
       </form>
-      <br>
+      
       <table id="password-table">
         <tr>
           <th>Number</th>
@@ -92,7 +93,7 @@
         ?>
       </table>
     </main>
-    <footer id="footer">&copy; Copyright 2024 - Quan Tran, Cayla Bias, John Pham, Jannet Doan</footer>
+    <footer id="footer">&copy; 2024 The Software Cats, All Rights Reserved</footer>
     <div class="pop-up-edit">
       <form action="edit.php" method="post" id="form2-edit">
         <h3>CURRENT PASSWORD</h3>

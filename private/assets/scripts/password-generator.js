@@ -37,3 +37,7 @@ function generatePassword() {
 function clearValue() {
   passwordBox.value = "";
 }
+
+function updateOutput(value) {
+  document.getElementById("output").textContent = value;
+}
