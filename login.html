@@ -1,14 +1,3 @@
-<?php require_once('../../private/initialize.php');
-  if (empty($_SESSION["id"])) {
-    header('Location: ' . 'login.php');
-    exit;
-  } 
-  $userid = $_SESSION["id"];
-  $userName = $_SESSION["user"];
-  $get_password = get_all_password($userid);
-  
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

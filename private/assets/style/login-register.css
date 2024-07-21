@@ -1,9 +1,10 @@
 /* Style the body */
 body {
-  font-family: Arial;
+  font-family: Helvetica, sans-serif;
   margin: 0;
-  background: silver;
+  background: #f0f0f0;
   text-align: center;
+  
 }
 
 /* Header/Logo Title */
@@ -15,11 +16,30 @@ body {
   color: black;
   font-size: 30px;
   position: relative;
+  font-family: Helvetica, sans-serif;
+}
+
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.4rem;
+  border: 1px solid black;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(56, 55, 55);
+  color: white;
+  position: fixed;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 /* Page Content */
 .content {
-  padding: 20px;
+  font-size: 28px;
+  padding: 10px;
 }
 
 /* Style the form container */
@@ -30,11 +50,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: inline-block;
   margin-top: 50px;
+  margin: 50px auto; /* Center the form */
+  width: 17%; /* Adjust the width as needed */
+  max-width: 600px; /* Optional: set a max-width to prevent it from becoming too wide */
+  margin-bottom: 80px;
+  font-size: 14px;
 }
 
 /* Style the form */
 form {
   text-align: left;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Style the input fields and button */
@@ -47,6 +73,16 @@ button {
   padding: 10px;
   margin: 10px 0;
   box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  border-radius: 10px;
+  border: 1px solid #ccc; /* Added to provide a border around input fields */
+  box-shadow: none; /* Added to remove shadow around input fields */
+}
+
+.subtext {
+  margin-top: 110px;
+  margin-bottom: -20px;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Style the error messages */
@@ -56,14 +92,46 @@ button {
 
 /* Style the buttons */
 .header button {
-  font-size: 12px;
+  font-size: 13px;
   padding: 5px 10px;
   margin-left: 5px;
-  background-color: #f1f1f1; /* Light grey */
+  background-color: #e3e3e3; /* Light grey */
   color: black;
-  border: 1px solid #ccc; /* Light grey border */
+  border: 1px solid #868585; /* Light grey border */
   border-radius: 5px;
   cursor: pointer;
+  width: 4.5%;
+  margin-right: 7px;
+}
+
+button.register-button {
+  font-size: 13px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #2c2c2c; /* Light grey */
+  color: white;
+  border: 1px solid #2c2c2c;/* Light grey border */
+  border-radius: 5px;
+  cursor: pointer;
+  width: 4.5%;
+  margin-right: 3px;
+  font: white;
+}
+button.register-button a {
+  text-decoration: none;
+  color: white;
+  
+}
+
+.header button.login-button a {
+  color: black; /* Text color of the link */
+  text-decoration: none; /* Remove underline */
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .header button:hover {
@@ -72,6 +140,22 @@ button {
 
 /* Align buttons side by side */
 .header .buttons {
-  display: inline-block;
+  display: flex;
   margin-left: auto;
+}
+
+button.black-button {
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+button.black-button:hover {
+  background-color: #333;
 }

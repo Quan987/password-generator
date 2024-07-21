@@ -37,14 +37,14 @@
   <body>
     <div class="header">
       <div class="buttons">
-        <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
-        <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
+        <button class="login-button"><a href="<?php echo encode_url('login.php');?>">Sign in</a></button>
+        <button class="register-button"><a href="<?php echo encode_url('register.php');?>">Register</a></button>
       </div>
     </div>
 
     <div class="content">
       <h1>Pass Generator</h1>
-      <h2>Login</h2>
+      <p class="subtext">Login</p>
       <div class="form-container">
         <form id="loginForm" action="login.php" method="post">
           <span class="error" id="email_err"></span>
@@ -67,11 +67,11 @@
             required
           /><br />
 
-          <button type="button" onclick="login()">Login</button>
+          <button type="button" onclick="login()" class="black-button">Login</button>
         </form>
       </div>
     </div>
-
+    <footer id="footer">&copy; Copyright 2024 - Quan Tran, Cayla Bias, John Pham, Jannet Doan</footer>
     <script src="../../private/assets/scripts/login.js"></script>
   </body>
 </html>

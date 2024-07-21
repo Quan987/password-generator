@@ -45,16 +45,14 @@
   <body>
     <div class="header">
       <div class="buttons">
-      <div class="buttons">
-        <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
-        <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
-      </div>
+        <button class="login-button"><a href="<?php echo encode_url('login.php');?>">Sign in</a></button>
+        <button class="register-button"><a href="<?php echo encode_url('register.php');?>">Register</a></button>
       </div>
     </div>
 
     <div class="content">
       <h1>Pass Generator</h1>
-      <h2>Register</h2>
+      <p class="subtext">Register</h2>
       <div class="form-container">
         <form action="register.php" method="post">
           <span class="error" id="first_err"></span>
@@ -97,11 +95,11 @@
             required
           /><br />
 
-          <button type="button" onclick="register()">Submit</button>
+          <button type="button" onclick="register()" class="black-button">Submit</button>
         </form>
       </div>
     </div>
-
+    <footer id="footer">&copy; Copyright 2024 - Quan Tran, Cayla Bias, John Pham, Jannet Doan</footer>
     <script src="../../private/assets/scripts/register.js"></script>
   </body>
 </html>
