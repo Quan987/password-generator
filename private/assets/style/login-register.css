@@ -1,20 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Style the body */
 body {
-  font-family: Arial;
-  margin: 0;
-  background: silver;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e6e6ff;
   text-align: center;
 }
 
 /* Header/Logo Title */
 .header {
-  padding: 10px;
+  padding: 0.4rem 2rem;
   text-align: right;
-
-  background: white;
+  background: #fefeff;
   color: black;
   font-size: 30px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Page Content */
@@ -24,12 +37,13 @@ body {
 
 /* Style the form container */
 .form-container {
+  width: 14%;
   background: white;
-  padding: 20px;
+  padding: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: inline-block;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 /* Style the form */
@@ -41,37 +55,81 @@ form {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-button {
+#sign-in-btn {
   display: block;
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
-  box-sizing: border-box;
+  /* margin: 10px 0; */
 }
 
 /* Style the error messages */
 .error {
   color: red;
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 /* Style the buttons */
 .header button {
-  font-size: 12px;
-  padding: 5px 10px;
-  margin-left: 5px;
-  background-color: #f1f1f1; /* Light grey */
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   color: black;
   border: 1px solid #ccc; /* Light grey border */
   border-radius: 5px;
   cursor: pointer;
 }
 
-.header button:hover {
-  background-color: #ddd; /* Slightly darker grey on hover */
+.header button > a {
+  text-decoration: none;
+  color: white;
 }
 
-/* Align buttons side by side */
-.header .buttons {
+footer {
+  background-color: #fefeff;
+  color: black;
+  text-align: left;
+  padding: 12px 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin: 3rem 0;
+}
+
+#logo {
+  display: block;
+  width: 100px;
+  /* height: 100px; */
+  /* border: 1px solid black; */
+  /* border-radius: 100px; */
+}
+
+button {
+	background-color: #8789fe;
+	color:white;
+}
+button:hover {
+	background-color: #686afd;
+}
+
+#sign-in-btn {
+	border-radius: 5px;
+}
+
+label {
   display: inline-block;
-  margin-left: auto;
+  margin-bottom: 0.5rem;
 }
