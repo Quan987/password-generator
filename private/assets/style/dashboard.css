@@ -105,7 +105,7 @@ body {
 
 input[type="checkbox"],
 input[type="range"] {
-	accent-color: #686afd;
+  accent-color: #686afd;
 }
 
 #password-generate-btn {
@@ -138,7 +138,7 @@ button:hover {
 }
 
 .store-btn:hover {
-	background-color: #686afd;
+  background-color: #686afd;
 }
 
 .generate-btn {
@@ -147,7 +147,7 @@ button:hover {
 }
 
 .generate-btn:hover {
-	background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
 
 /* ----------------------------------------- */
@@ -162,10 +162,9 @@ table {
 
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid #686afd;
   padding: 0.8rem 0.3rem;
 }
-
 
 .th-password {
   width: 60%;
@@ -173,6 +172,7 @@ td {
 
 .editButton,
 .deleteButton {
+  background-color: #fefeff;
   text-transform: uppercase;
   padding: 0.5rem 0.7rem;
   cursor: pointer;
@@ -208,7 +208,8 @@ footer {
   border: 1px solid rgb(190, 190, 190);
   border-radius: 5px;
   z-index: 200;
-  background: rgb(180, 180, 180);
+  /* background: rgb(180, 180, 180); */
+  background: #8789fe;
   width: 25%;
   height: 25%;
   padding: 0.4rem;
@@ -277,4 +278,3 @@ footer {
 h3 {
   font-size: 1.4rem;
 }
-
