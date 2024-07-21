@@ -27,7 +27,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../../private/assets/style/login-register.css" />
+    <link rel="stylesheet" href="login-register.css" />
     <script>
        if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
@@ -36,7 +36,7 @@
   </head>
   <body>
     <div class="header">
-      <img id="logo" src="../../private/assets/images/logo.png" alt="logo">
+      <img id="logo" src="logo.png" alt="logo">
       <div class="buttons">
         <button class="login-btn"><a href="<?php echo encode_url('login.php');?>">Login</a></button>
         <button class="register-btn"><a href="<?php echo encode_url('register.php');?>">Register</a></button>
@@ -44,8 +44,8 @@
     </div>
 
     <div class="content">
-      <h1 class="title">Pass Generator</h1>
-      <h2 class="subtitle">Login</h2>
+      <h1 class="title">Password Generator</h1>
+      <h2 class="subtitle">Login Here!</h2>
       <div class="form-container">
         <form id="loginForm" action="login.php" method="post">
           
@@ -74,6 +74,8 @@
 
           <button id="sign-in-btn" type="button" onclick="login()">Login</button>
         </form>
+		<br>
+		<p> Not registered? <a href = "<?php echo encode_url('register.php');?>"> Register Now</a></p>
       </div>
     </div>
     <footer>&copy; 2024 The Software Cats, All Rights Reserved</footer>
