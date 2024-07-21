@@ -76,9 +76,7 @@
         </form>
       </div>
     </div>
-    <footer>
-    © 2024 The Software Cats, All Rights Reserved
-    </footer>
+    <footer>&copy; 2024 The Software Cats, All Rights Reserved</footer>
     <script src="../../private/assets/scripts/login.js"></script>
   </body>
 </html>
