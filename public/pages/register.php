@@ -44,20 +44,19 @@
   </head>
   <body>
     <div class="header">
-      <div class="buttons">
+    <img id="logo" src="../../private/assets/images/logo.png" alt="logo">
       <div class="buttons">
         <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
         <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
       </div>
-      </div>
     </div>
 
     <div class="content">
-      <h1>Pass Generator</h1>
-      <h2>Register</h2>
+      <h1 class="title">Pass Generator</h1>
+      <h2 class="subtitle">Register</h2>
       <div class="form-container">
         <form action="register.php" method="post">
-          <span class="error" id="first_err"></span>
+          
           <label for="first">First Name</label><br />
           <input
             type="text"
@@ -65,9 +64,11 @@
             name="first_name"
             placeholder="Enter your First Name"
             required
-          /><br />
+          />
+          <span class="error" id="first_err"></span>
+          <br />
 
-          <span class="error" id="last_err"></span>
+          
           <label for="last">Last Name</label><br />
           <input
             type="text"
@@ -75,9 +76,11 @@
             name="last_name"
             placeholder="Enter your Last Name"
             required
-          /><br />
+          />
+          <span class="error" id="last_err"></span>
+          <br />
 
-          <span class="error" id="email_err"></span>
+          
           <label for="email">Email</label><br />
           <input
             type="email"
@@ -85,9 +88,11 @@
             name="email"
             placeholder="Enter your email address"
             required
-          /><br />
+          />
+          <span class="error" id="email_err"></span>
+          <br />
 
-          <span class="error" id="pass_err"></span>
+          
           <label for="password">Password</label><br />
           <input
             type="password"
@@ -95,9 +100,11 @@
             name="password"
             placeholder="Enter your password"
             required
-          /><br />
+          />
+          <span class="error" id="pass_err"></span>
+          <br /> <br>
 
-          <button type="button" onclick="register()">Submit</button>
+          <button id="sign-in-btn" type="button" onclick="register()">Submit</button>
         </form>
       </div>
     </div>
