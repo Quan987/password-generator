@@ -36,18 +36,19 @@
   </head>
   <body>
     <div class="header">
+      <img id="logo" src="../../private/assets/images/logo.png" alt="logo">
       <div class="buttons">
-        <button><a href="<?php echo encode_url('login.php');?>">Login</a></button>
-        <button><a href="<?php echo encode_url('register.php');?>">Register</a></button>
+        <button class="login-btn"><a href="<?php echo encode_url('login.php');?>">Login</a></button>
+        <button class="register-btn"><a href="<?php echo encode_url('register.php');?>">Register</a></button>
       </div>
     </div>
 
     <div class="content">
-      <h1>Pass Generator</h1>
-      <h2>Login</h2>
+      <h1 class="title">Pass Generator</h1>
+      <h2 class="subtitle">Login</h2>
       <div class="form-container">
         <form id="loginForm" action="login.php" method="post">
-          <span class="error" id="email_err"></span>
+          
           <label for="email">Email:</label><br />
           <input
             type="email"
@@ -55,9 +56,11 @@
             name="email"
             placeholder="Enter your email address"
             required
-          /><br />
+          />
+          <span class="error" id="email_err"></span>
+          <br />
 
-          <span class="error" id="pass_err"></span>
+          
           <label for="password">Password:</label><br />
           <input
             type="password"
@@ -65,9 +68,11 @@
             name="password"
             placeholder="Enter your password"
             required
-          /><br />
+          />
+          <span class="error" id="pass_err"></span>
+          <br /><br>
 
-          <button type="button" onclick="login()">Login</button>
+          <button id="sign-in-btn" type="button" onclick="login()">Login</button>
         </form>
       </div>
     </div>
