@@ -27,7 +27,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="login-register.css" />
+    <link rel="stylesheet" href="../../private/assets/style/login-register.css" />
     <script>
        if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
@@ -36,7 +36,7 @@
   </head>
   <body>
     <div class="header">
-      <img id="logo" src="logo.png" alt="logo">
+      <img id="logo" src="../../private/assets/images/logo.png" alt="logo">
       <div class="buttons">
         <button class="login-btn"><a href="<?php echo encode_url('login.php');?>">Login</a></button>
         <button class="register-btn"><a href="<?php echo encode_url('register.php');?>">Register</a></button>
