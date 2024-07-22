@@ -7,7 +7,7 @@
         echo <<<EOF
             <script type="text/javascript">
             alert("Password already exist, please generate a different one");
-            window.location.href="index.php";
+            window.location.href="dashboard.php";
             </script>;
         EOF;
     }

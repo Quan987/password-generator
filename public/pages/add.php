@@ -1,9 +1,9 @@
 <?php
     require_once('../../private/initialize.php');
-    require_once('index.php');
+    require_once('dashboard.php');
 
     if($_SERVER["REQUEST_METHOD"] !== "POST" &&  isset($_POST["generate-password-box"])) {
-        header('Location: ' . 'index.php');
+        header('Location: ' . 'dashboard.php');
         exit;
     } else {
         $user_info = [
@@ -18,14 +18,14 @@
             echo <<<EOF
                 <script type="text/javascript">
                 alert("Password Add Succesful!");
-                window.location.href="index.php";
+                window.location.href="dashboard.php";
                 </script>;
             EOF;
         } else {
             echo <<<EOF
                 <script type="text/javascript">
                 alert("Password Cannot Be Add");
-                window.location.href="index.php";
+                window.location.href="dashboard.php";
                 </script>;
             EOF;
         }

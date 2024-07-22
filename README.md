@@ -51,18 +51,18 @@ To run the Password Generator Website locally on your machine, follow these step
 2. **Open File**:
 
    ```bash
-   Open the file index.php from public folder
+   Open the file dashboard.php from public folder
    ```
 
 3. **Run the Application**:
 
    ```bash
-   Right click inside index.php, selects "PHP Server: Serve Project"
+   Right click inside dashboard.php, selects "PHP Server: Serve Project"
    ```
 
 4. **Quit the Application**:
    ```bash
-   Right click inside index.php, selects "PHP Server: Stop Server"
+   Right click inside dashboard.php, selects "PHP Server: Stop Server"
    ```
 
 ## Contributing
