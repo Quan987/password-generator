@@ -33,6 +33,7 @@ body {
 /* Page Content */
 .content {
   padding: 20px;
+  min-height: 100vh;
 }
 
 /* Style the form container */
@@ -89,8 +90,10 @@ footer {
   color: black;
   text-align: left;
   padding: 12px 10px;
-  position: fixed;
+  position: relative;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   font-size: 14px;
@@ -118,15 +121,15 @@ footer {
 }
 
 button {
-	background-color: #8789fe;
-	color:white;
+  background-color: #8789fe;
+  color: white;
 }
 button:hover {
-	background-color: #686afd;
+  background-color: #686afd;
 }
 
 #sign-in-btn {
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
 label {
