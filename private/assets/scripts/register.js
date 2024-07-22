@@ -13,6 +13,13 @@ function clear_error() {
   pass_err.innerText = "";
 }
 
+//Added validateEmail function to check if email format is correct
+function validateEmail(email) {
+  // Basic email pattern: something@domain.extension
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
 // User validation
 function user_validation(isValid) {
   const first = document.getElementById("first").value;
@@ -30,6 +37,11 @@ function user_validation(isValid) {
   }
   if (!email) {
     email_err.innerText = "Email is required";
+    isValid = false;
+    
+    //added error message for email format 
+  } else if (!validateEmail(email)) {
+    email_err.innerText = "Please enter a valid email address.";
     isValid = false;
   }
   if (!password) {
@@ -49,3 +61,5 @@ function register() {
     document.querySelector("form").submit();
   }
 }
+//this is the event listener for the register button which calls the register function above. 
+document.getElementById("sign-in-btn").addEventListener("click", register);
