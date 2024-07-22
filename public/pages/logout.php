@@ -1,6 +1,6 @@
 <?php require_once ('../../private/initialize.php');
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        header('Location: ' . 'index.php');
+        header('Location: ' . 'dashboard.php');
     } else {
         $_SESSION = [];
         session_unset();

@@ -1,6 +1,6 @@
 <?php require_once('../../private/initialize.php');
   if (isset($_SESSION["id"])) {
-    header('Location: ' . 'index.php');
+    header('Location: ' . 'dashboard.php');
   }
   if($_SERVER["REQUEST_METHOD"] === "POST") {
     $user_info = [
@@ -15,7 +15,7 @@
       $_SESSION["id"] = $result["id"];
       $_SESSION["user"] = $result["first_name"] . " " . $result["last_name"];
       db_disconnect($db);
-      header('Location: ' . 'index.php');
+      header('Location: ' . 'dashboard.php');
       exit;
     }
   }

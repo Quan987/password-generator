@@ -1,6 +1,6 @@
 <?php require_once ('../../private/initialize.php');
   if (isset($_SESSION["id"])) {
-    header('Location: ' . 'index.php');
+    header('Location: ' . 'dashboard.php');
   }
 
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
